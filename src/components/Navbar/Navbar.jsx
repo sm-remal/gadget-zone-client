@@ -5,7 +5,7 @@ import { useState } from "react";
 import { GoHomeFill } from "react-icons/go";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { MdManageAccounts } from "react-icons/md";
-import { IoCall } from "react-icons/io5";
+import { BiSolidContact } from "react-icons/bi";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { FaGear, FaUser } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
@@ -82,7 +82,7 @@ const NavBar = () => {
           </li>
           <li>
             <Link href={"/contact"} className={isActive("/contact")}>
-              <IoCall />Contact
+              <BiSolidContact size={14} />Contact
             </Link>
           </li>
         </ul>
@@ -106,7 +106,7 @@ const NavBar = () => {
                 <li className="text-xs">{user.email}</li>
               </div>
               <li className="mt-3">
-                <Link href={"/profile"}><FaUser /> Profile</Link>
+                <Link href={"/my-profile"}><FaUser /> Profile</Link>
               </li>
               <li>
                 <Link href={"/my-models"}>My Models</Link>
