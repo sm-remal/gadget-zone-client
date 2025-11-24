@@ -54,14 +54,13 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-0 flex justify-center items-center min-h-full">
+    <div className="w-full px-4 mt-14 sm:px-6 md:px-0 flex justify-center items-center min-h-full">
       <div className="card-body w-full max-w-md">
         {/* Title */}
         <div className="flex flex-col justify-center mb-4 text-center space-y-4">
-          <h1 className="text-3xl font-bold text-gray-700">
+          <h1 className="text-3xl font-bold text-orange-500">
             Login Your Account
           </h1>
-          <p className="font-bold text-gray-600">Register with ZapShift</p>
         </div>
 
         {/* Form */}
@@ -133,7 +132,7 @@ const Login = () => {
             </div>
 
             {/* Submit */}
-            <button className="btn w-full bg-primary font-semibold mt-4 shadow-sm hover:shadow-lg transition-all duration-300">
+            <button className="btn w-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold mt-4 shadow-sm hover:shadow-lg transition-all duration-300">
               Sign In
             </button>
           </fieldset>
@@ -159,7 +158,7 @@ const Login = () => {
                 pathname: "/registration",
                 query: { redirect: redirectTo },
               }}
-              className="text-green-500 underline font-semibold"
+              className="text-orange-500 underline font-semibold"
             >
               Registration
             </Link>

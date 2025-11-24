@@ -3,6 +3,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { GoHomeFill } from "react-icons/go";
+import { BsBoxSeamFill } from "react-icons/bs";
+import { MdManageAccounts } from "react-icons/md";
+import { IoCall } from "react-icons/io5";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { FaGear, FaUser } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
@@ -18,10 +21,10 @@ const NavBar = () => {
     signOutUser()
       .then(() => {
         toast.success("Signout successful!", { id: "signout" });
-        router.push("/"); // redirect home
+        router.push("/login"); // redirect home
       })
       .catch((err) => {
-        const errorMessage = err.message; // simple error
+        const errorMessage = err.message;
         setError(errorMessage);
         toast.error(errorMessage, { id: "login" });
       });
@@ -34,6 +37,23 @@ const NavBar = () => {
     <div className="navbar py-0 min-h-0 shadow-sm max-w-7xl mx-auto w-full px-3 sm:px-6">
       {/* Navbar Start */}
       <div className="navbar-start flex items-center gap-2">
+        {/* Mobile menu icon */}
+        <div className="dropdown md:hidden">
+          <label tabIndex={0} className="btn btn-ghost btn-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </label>
+          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+            <li><Link href={"/"}>Home</Link></li>
+            <li><Link href={"/all-products"}>All Products</Link></li>
+            <li><Link href={"/about"}>About Us</Link></li>
+            <li><Link href={"/contact"}>Contact</Link></li>
+          </ul>
+        </div>
+
         {/* Logo */}
         <Link href={"/"} className="flex items-center -ml-3 md:ml-0 gap-1 text-lg sm:text-xl font-bold whitespace-nowrap">
           <span className="truncate max-w-[130px] sm:max-w-none">
@@ -42,7 +62,7 @@ const NavBar = () => {
         </Link>
       </div>
 
-      {/* Navbar Center (hidden on mobile) */}
+      {/* Navbar Center (desktop) */}
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1 gap-10">
           <li>
@@ -52,17 +72,17 @@ const NavBar = () => {
           </li>
           <li>
             <Link href={"/all-products"} className={isActive("/all-products")}>
-               All Products
+              <BsBoxSeamFill size={12} />All Products
             </Link>
           </li>
           <li>
             <Link href={"/about"} className={isActive("/about")}>
-               About Us
+              <MdManageAccounts size={20}/>About Us
             </Link>
           </li>
           <li>
             <Link href={"/contact"} className={isActive("/contact")}>
-               Contact
+              <IoCall />Contact
             </Link>
           </li>
         </ul>
@@ -75,7 +95,7 @@ const NavBar = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-9 border-2 border-gray-300 rounded-full">
                 <img
-                  alt="User avatar" referrerPolicy="no-referrer" src={user?.photoURL || 
+                alt="User avatar" referrerPolicy="no-referrer" src={user?.photoURL || 
                     "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
                 />
               </div>
@@ -98,14 +118,14 @@ const NavBar = () => {
                 <a><FaGear /> Settings</a>
               </li>
               <li>
-                <button onClick={handleSignout} className="btn btn-xs text-left bg-gradient-to-r from-pink-500 to-red-500 text-white">
+                <button onClick={handleSignout} className="btn btn-xs text-left bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
                   <IoLogOut /> Logout
                 </button>
               </li>
             </ul>
           </div>
         ) : (
-          <Link href={"/login"} className="btn rounded-full border-gray-300 btn-sm bg-gradient-to-r from-pink-500 to-red-500 text-white">
+          <Link href={"/login"} className="btn rounded-full border-gray-300 btn-sm bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
             <IoLogIn /> Login
           </Link>
         )}
