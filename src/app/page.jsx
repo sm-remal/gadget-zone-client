@@ -1,7 +1,7 @@
 import BannerSlider from "@/components/Banner/Banner";
 import LatestProducts from "@/components/LatestProducts/LatestProducts";
 import MegaDeal from "@/components/MegaDeal/MegaDeal";
-import Image from "next/image";
+import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -9,6 +9,7 @@ export default function Home() {
     <BannerSlider></BannerSlider>
     <LatestProducts></LatestProducts>
     <MegaDeal></MegaDeal>
+    <WhyChooseUs></WhyChooseUs>
     </div>
   );
 }
