@@ -1,12 +1,10 @@
-
-
-
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -21,23 +19,6 @@ const sliderData = [
 
 const BannerSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [currentTitle, setCurrentTitle] = useState("");
-
-  useEffect(() => {
-    // Reset title immediately when slide changes
-    setCurrentTitle("");
-
-    const fullText = sliderData[activeIndex].title;
-    let charIndex = 0;
-
-    const interval = setInterval(() => {
-      setCurrentTitle((prev) => prev + fullText.charAt(charIndex));
-      charIndex++;
-      if (charIndex >= fullText.length) clearInterval(interval);
-    }, 80);
-
-    return () => clearInterval(interval);
-  }, [activeIndex]);
 
   return (
     <div className="w-full h-[75vh] md:h-[85vh] relative">
@@ -58,13 +39,22 @@ const BannerSlider = () => {
               <div className="absolute inset-0 flex items-center justify-center px-6 md:px-20 text-center">
                 <div className="flex flex-col items-center gap-3">
 
-                  {/* Only active slide types */}
+                  {/* Typing animation using Typewriter */}
                   <h2
-                    key={activeIndex} // force re-render each slide
                     className="text-3xl md:text-5xl font-bold text-white"
                     style={{ textShadow: "2px 3px 6px rgba(0,0,0,0.9)" }}
                   >
-                    {index === activeIndex ? currentTitle : item.title}
+                    {index === activeIndex ? (
+                      <Typewriter
+                        words={[item.title]}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={80}
+                        deleteSpeed={50}
+                      />
+                    ) : (
+                      item.title
+                    )}
                   </h2>
 
                   <p
@@ -74,7 +64,7 @@ const BannerSlider = () => {
                     {item.desc}
                   </p>
 
-                  <button className="mt-4 px-7 py-3 bg-white/90 text-black font-semibold rounded-lg hover:bg-orange-300 transition">
+                  <button className="mt-4 px-7 py-3 bg-white/90 text-black font-semibold rounded-lg hover:bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:text-white transition cursor-pointer">
                     Shop Now
                   </button>
 
