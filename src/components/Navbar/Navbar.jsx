@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { GoHomeFill } from "react-icons/go";
 import { BsBoxSeamFill } from "react-icons/bs";
+import { MdAddToPhotos } from "react-icons/md";
+import { BiSolidWalletAlt } from "react-icons/bi";
 import { MdManageAccounts } from "react-icons/md";
 import { BiSolidContact } from "react-icons/bi";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
@@ -109,10 +111,10 @@ const NavBar = () => {
                 <Link href={"/my-profile"}><FaUser /> Profile</Link>
               </li>
               <li>
-                <Link href={"/my-models"}>My Models</Link>
+                <Link href={"/add-product"}><MdAddToPhotos />Add Product</Link>
               </li>
               <li>
-                <Link href={"/my-downloads"}>My Downloads</Link>
+                <Link href={"/manage-products"}><BiSolidWalletAlt />Manage Products</Link>
               </li>
               <li>
                 <a><FaGear /> Settings</a>
