@@ -16,7 +16,7 @@ const ManageProducts = () => {
     if (!user?.email) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/products?userEmail=${user.email}`);
+      const res = await fetch(`http://localhost:5000/products?email=${user.email}`);
       const data = await res.json();
       setProducts(data);
     } catch (error) {
@@ -78,7 +78,7 @@ const ManageProducts = () => {
               <tr>
                 <th className="py-3 px-4 border-b text-left">Title</th>
                 <th className="py-3 px-4 border-b text-left">Category</th>
-                <th className="py-3 px-4 border-b text-left">Price</th>
+                <th className="py-3 px-4 border-b text-left">Price (Tk)</th>
                 <th className="py-3 px-4 border-b text-left">Rating</th>
                 <th className="py-3 px-4 border-b text-left">Actions</th>
               </tr>
