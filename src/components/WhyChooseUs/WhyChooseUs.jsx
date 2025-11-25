@@ -36,8 +36,8 @@ const InteractiveCards = () => {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <div className="max-w-7xl mx-auto px-5 py-16 bg-gray-50">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+    <div className="max-w-7xl mx-auto px-5 mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-center text-orange-600 mb-12">
         Why Choose Us
       </h2>
 

@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         <div className="flex flex-col min-h-screen">
           <AuthProvider>
             <Navbar></Navbar>
-            <div className="flex-1">
+            <div className="flex-1 bg-orange-50">
               {children}
             </div>
             <Footer></Footer>

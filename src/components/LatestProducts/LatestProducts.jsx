@@ -30,7 +30,7 @@ const LatestProducts = async () => {
 
   return (
     <div className="latest-products px-5 py-10">
-      <h2 className="text-3xl text-center font-bold text-orange-500 md:mt-5 mb-10">Latest Products</h2>
+      <h2 className="text-3xl lg:text-4xl text-center font-bold text-orange-600 md:mt-5 mb-10">Latest Products</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map(product => (
           <div 
@@ -85,6 +85,11 @@ const LatestProducts = async () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className='flex justify-center mt-8 md:mt-12'>
+        <Link href={"/all-products"}>
+          <button className='btn bg-red-500 hover:bg-red-600 text-white font-semibold'>See All Products</button>
+        </Link>
       </div>
     </div>
   );

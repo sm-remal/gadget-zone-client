@@ -45,15 +45,15 @@ const MegaDeal = () => {
       </div>
 
       {/* CONTENT BELOW BANNER */}
-      <div className="text-center mt-6"> 
+      <div className="text-center mt-10"> 
 
         {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-3 text-gray-800">
+        <h2 className="text-4xl md:text-5xl font-bold mb-3 text-red-600">
           🔥 Mega Deal is Live!
         </h2>
 
         {/* Timer */}
-        <div className="flex justify-center gap-10 text-center mb-6">
+        <div className="flex justify-center gap-10 text-center my-10">
           <div>
             <div className="text-4xl font-bold text-red-600">{timeLeft.hours}</div>
             <div className="text-sm uppercase text-gray-600">Hours</div>
@@ -71,7 +71,7 @@ const MegaDeal = () => {
         {/* Button */}
         <a
           href="/mega-deal"
-          className="bg-red-600 px-6 py-3 rounded-lg font-bold text-white hover:bg-red-700 transition shadow-md"
+          className="bg-red-500 px-6 py-3 rounded-md font-bold text-white hover:bg-red-600 transition shadow-md"
         >
           Shop Now
         </a>
