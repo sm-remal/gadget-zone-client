@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import useAuth from '@/hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Registration = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +39,7 @@ const Registration = () => {
             // Update Firebase User Profile
             await updateUserProfile(data.name, photoURL);
             console.log("User profile updated");
-
+            toast.success("Signout successful!", { id: "signout" });
             router.push(redirectTo); // redirect after registration
         } catch (error) {
             console.log(error);
@@ -49,6 +50,7 @@ const Registration = () => {
         try {
             const res = await googleSignIn();
             console.log(res.user);
+            toast.success("Signout successful!", { id: "signout" });
             router.push(redirectTo);
         } catch (error) {
             console.log(error);

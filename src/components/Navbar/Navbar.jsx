@@ -37,7 +37,7 @@ const NavBar = () => {
   const pathName = usePathname();
   const linkClass = (path) =>
     pathName === path
-      ? "underline" 
+      ? "underline"
       : "";
 
 
@@ -50,7 +50,7 @@ const NavBar = () => {
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none"
               viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </label>
@@ -63,11 +63,15 @@ const NavBar = () => {
         </div>
 
         {/* Logo */}
-        <Link href={"/"} className="flex items-center -ml-3 md:ml-0 gap-1 text-lg sm:text-xl font-bold whitespace-nowrap">
-          <span className="truncate text-white max-w-[130px] sm:max-w-none">
+        <Link
+          href={"/"}
+          className="flex items-center -ml-3 md:ml-0 gap-1 text-xl sm:text-2xl md:text-[26px] font-bold whitespace-nowrap"
+        >
+          <span className="truncate text-white max-w-[190px] sm:max-w-none">
             Gadget Zone
           </span>
         </Link>
+
       </div>
 
       {/* Navbar Center (desktop) */}
@@ -85,7 +89,7 @@ const NavBar = () => {
           </li>
           <li>
             <Link href={"/about"} className={`text-white text-lg font-medium ${linkClass("/about")}`}>
-              <MdManageAccounts size={20}/>About Us
+              <MdManageAccounts size={20} />About Us
             </Link>
           </li>
           <li>
@@ -103,7 +107,7 @@ const NavBar = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-9 border-2 border-gray-300 rounded-full">
                 <img
-                alt="User avatar" referrerPolicy="no-referrer" src={user?.photoURL || 
+                  alt="User avatar" referrerPolicy="no-referrer" src={user?.photoURL ||
                     "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
                 />
               </div>
@@ -126,7 +130,7 @@ const NavBar = () => {
                 <a><FaGear /> Settings</a>
               </li>
               <li>
-                <button onClick={handleSignout} className="btn btn-xs text-left bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
+                <button onClick={handleSignout} className="btn btn-lg text-left bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
                   <IoLogOut /> Logout
                 </button>
               </li>
