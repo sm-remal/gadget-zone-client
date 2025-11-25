@@ -37,8 +37,6 @@ export function proxy(request) {
 // Protected routes (all paths you want to protect)
 export const config = {
   matcher: [
-    "/about/:path*",
-    "/contact/:path*",
     "/dashboard/:path*", // example protected pages
   ],
 };

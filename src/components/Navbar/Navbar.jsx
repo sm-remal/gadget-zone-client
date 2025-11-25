@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { GoHomeFill } from "react-icons/go";
 import { BsBoxSeamFill } from "react-icons/bs";
@@ -33,10 +33,16 @@ const NavBar = () => {
   };
 
   // Active link style
-  const isActive = (path) => router.pathname === path ? "text-pink-600 font-bold" : "";
+
+  const pathName = usePathname();
+  const linkClass = (path) =>
+    pathName === path
+      ? "underline" 
+      : "";
+
 
   return (
-    <div className="navbar py-0 min-h-0 shadow-sm max-w-7xl mx-auto w-full px-3 sm:px-6">
+    <div className="navbar py-1 min-h-0 shadow-sm bg-[#ff6348] px-2 sm:px-4">
       {/* Navbar Start */}
       <div className="navbar-start flex items-center gap-2">
         {/* Mobile menu icon */}
@@ -58,7 +64,7 @@ const NavBar = () => {
 
         {/* Logo */}
         <Link href={"/"} className="flex items-center -ml-3 md:ml-0 gap-1 text-lg sm:text-xl font-bold whitespace-nowrap">
-          <span className="truncate max-w-[130px] sm:max-w-none">
+          <span className="truncate text-white max-w-[130px] sm:max-w-none">
             Gadget Zone
           </span>
         </Link>
@@ -66,25 +72,25 @@ const NavBar = () => {
 
       {/* Navbar Center (desktop) */}
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1 gap-10">
+        <ul className="menu menu-horizontal px-1 gap-3">
           <li>
-            <Link href={"/"} className={isActive("/")}>
+            <Link href={"/"} className={`text-white text-lg font-medium ${linkClass("/")}`}>
               <GoHomeFill /> Home
             </Link>
           </li>
           <li>
-            <Link href={"/all-products"} className={isActive("/all-products")}>
-              <BsBoxSeamFill size={12} />All Products
+            <Link href={"/all-products"} className={`text-white text-lg font-medium ${linkClass("/all-products")}`}>
+              <BsBoxSeamFill size={14} />All Products
             </Link>
           </li>
           <li>
-            <Link href={"/about"} className={isActive("/about")}>
+            <Link href={"/about"} className={`text-white text-lg font-medium ${linkClass("/about")}`}>
               <MdManageAccounts size={20}/>About Us
             </Link>
           </li>
           <li>
-            <Link href={"/contact"} className={isActive("/contact")}>
-              <BiSolidContact size={14} />Contact
+            <Link href={"/contact"} className={`text-white text-lg font-medium ${linkClass("/contact")}`}>
+              <BiSolidContact size={16} />Contact
             </Link>
           </li>
         </ul>

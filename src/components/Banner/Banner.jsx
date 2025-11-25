@@ -8,6 +8,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import Link from "next/link";
 
 const sliderData = [
   { id: 1, img: "/banner/discount.jpg", title: "Mega Discount Offer", desc: "Grab the hottest deals of the season with up to 60% off!" },
@@ -21,7 +22,7 @@ const BannerSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="w-full h-[75vh] md:h-[85vh] relative">
+    <div className="w-full h-[400px] md:h-[480px] relative">
       <Swiper
         pagination={{ clickable: true }}
         modules={[Pagination, Autoplay]}
@@ -64,9 +65,11 @@ const BannerSlider = () => {
                     {item.desc}
                   </p>
 
-                  <button className="mt-4 px-7 py-3 bg-white/90 text-black font-semibold rounded-lg hover:bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:text-white transition cursor-pointer">
-                    Shop Now
-                  </button>
+                  <Link href={"/all-products"}>
+                    <button className="mt-4 px-7 py-3 bg-white/90 text-black font-semibold rounded-lg hover:bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:text-white transition cursor-pointer">
+                      Shop Now
+                    </button>
+                  </Link>
 
                 </div>
               </div>

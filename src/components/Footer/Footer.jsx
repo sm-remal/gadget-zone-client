@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="content-layout footer sm:footer-horizontal bg-gray-300 text-base-content p-10">
+        <footer className="content-layout footer sm:footer-horizontal bg-[#f8c291] text-base-content p-10">
             <div>
                 <h2 className='text-lg md:text-xl font-semibold text-gray-700'>Gadget Zone</h2>
                 <p className='font-medium text-gray-700'>Loading the way in cutting-edge <br className='hidden md:flex'/> technology and innovation</p>
