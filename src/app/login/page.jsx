@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import useAuth from "@/hooks/useAuth";
 import toast from "react-hot-toast";
 
@@ -26,8 +26,8 @@ const Login = () => {
 
   // Router
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirectTo = searchParams?.get("redirect") || "/";
+  // const searchParams = useSearchParams();
+  // const redirectTo = searchParams?.get("redirect") || "/";
 
   // Watching email
   const watchedEmail = watch("email");
@@ -41,7 +41,7 @@ const Login = () => {
       .then((res) => {
         console.log(res.user);
         toast.success("Signout successful!", { id: "signout" });
-        router.push(redirectTo);
+        router.push("/");
       })
       .catch((error) => console.log(error));
   };
@@ -51,7 +51,7 @@ const Login = () => {
       .then((res) => {
         console.log(res.user);
         toast.success("Signout successful!", { id: "signout" });
-        router.push(redirectTo);
+        router.push("/");
       })
       .catch((err) => console.log(err));
   };

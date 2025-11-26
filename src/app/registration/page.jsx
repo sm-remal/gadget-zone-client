@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import useAuth from '@/hooks/useAuth';
 import toast from 'react-hot-toast';
@@ -17,8 +17,8 @@ const Registration = () => {
     const { createUser, updateUserProfile, googleSignIn } = useAuth();
 
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const redirectTo = searchParams.get('from') || '/'; // redirect url
+    // const searchParams = useSearchParams();
+    // const redirectTo = searchParams.get('from') || '/'; // redirect url
 
     const handleRegistration = async (data) => {
         try {
@@ -40,7 +40,7 @@ const Registration = () => {
             await updateUserProfile(data.name, photoURL);
             console.log("User profile updated");
             toast.success("Signout successful!", { id: "signout" });
-            router.push(redirectTo); // redirect after registration
+            router.push("/"); // redirect after registration
         } catch (error) {
             console.log(error);
         }
@@ -51,7 +51,7 @@ const Registration = () => {
             const res = await googleSignIn();
             console.log(res.user);
             toast.success("Signout successful!", { id: "signout" });
-            router.push(redirectTo);
+            router.push("/");
         } catch (error) {
             console.log(error);
         }
