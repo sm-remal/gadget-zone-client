@@ -1,6 +1,6 @@
 # 💡 Gadget Zone – E-Commerce Gadget Store
 
-**Gadget Zone** is a modern **Next.js e-commerce web application** where users can browse, explore, and purchase the latest gadgets.  
+**Gadget Zone** is a modern **Next.js e-commerce web application** where users can browse, explore, and view details the latest and all gadgets.  
 It features a clean interface, responsive design, and interactive animations.
 
 🧩 **Stack:** Next.js • React.js • Express.js • Tailwind CSS • MongoDB • Firebase Auth  
@@ -16,13 +16,12 @@ It features a clean interface, responsive design, and interactive animations.
 
 ## ✨ Key Features  
 
-**🛒 Browse Latest Products** – Users can explore all gadgets with category filters.  
+**🛒 Browse Latest Products** – Users can explore all gadgets with search.  
 **📄 Product Details** – Detailed view including image, short/long descriptions, specifications, availability, and rating.  
 **🔒 Firebase Authentication** – Email/password login and Google Sign-In.  
 **⚙️ CRUD Functionalities** – Admin can add, update, or delete products in MongoDB.  
 **📱 Fully Responsive UI** – Works perfectly on mobile, tablet, and desktop screens.  
 **🎨 Smooth Animations** – Framer Motion and interactive sliders for modern feel.  
-**🧭 Extra Pages** – About, Contact, My Profile, and FAQ for better UX.  
 **🌈 Modern Design Theme** – Elegant colors, hover effects, and gradients.
 
 ---
@@ -32,7 +31,7 @@ It features a clean interface, responsive design, and interactive animations.
 | Page | Type | Description |
 |------|------|-------------|
 | **Home (`/`)** | Public | Banner, Latest Products, Mega Deals, Reviews, WhyChooseUs |
-| **All Products (`/all-products`)** | Public | Displays all products with filters |
+| **All Products (`/all-products`)** | Public | Displays all products with search |
 | **Add Product (`/add-product`)** | Private | Admin can add a new product |
 | **Manage Products (`/manage-products`)** | Private | Admin can update or delete products |
 | **Product Details (`/product-details/[id]`)** | Public | Detailed info about a single product |
@@ -68,9 +67,9 @@ It features a clean interface, responsive design, and interactive animations.
 | **Server Runtime** | Node.js, Express.js |
 | **Database** | MongoDB Atlas |
 | **Authentication** | Firebase Auth |
-| **Environment Variables** | .env.local |
+| **Environment Variables** | .env |
 | **CORS** | Enabled via `cors` package |
-| **Deployment** | Vercel / Heroku |
+| **Deployment** | Vercel |
 
 ---
 
