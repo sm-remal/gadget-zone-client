@@ -48,7 +48,7 @@ const Login = () => {
     googleSignIn()
       .then((res) => {
         console.log(res.user);
-        toast.success("Signout successful!", { id: "signout" });
+        toast.success("Login successful!", { id: "Login" });
         router.push("/");
       })
       .catch((err) => console.log(err));
@@ -121,15 +121,11 @@ const Login = () => {
 
             {/* Forgot Password */}
             <div>
-              <Link
+              <p
                 className="link link-hover"
-                href={{
-                  pathname: "/forget-password",
-                  query: { email },
-                }}
               >
                 Forgot password?
-              </Link>
+              </p>
             </div>
 
             {/* Submit */}
