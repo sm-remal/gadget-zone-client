@@ -23,7 +23,7 @@ const NavBar = () => {
     signOutUser()
       .then(() => {
         toast.success("Signout successful!", { id: "signout" });
-        router.push("/login"); // redirect home
+        router.push("/login"); 
       })
       .catch((err) => {
         const errorMessage = err.message;

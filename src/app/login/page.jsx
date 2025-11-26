@@ -26,9 +26,7 @@ const Login = () => {
 
   // Router
   const router = useRouter();
-  // const searchParams = useSearchParams();
-  // const redirectTo = searchParams?.get("redirect") || "/";
-
+  
   // Watching email
   const watchedEmail = watch("email");
 
@@ -159,7 +157,7 @@ const Login = () => {
             <Link
               href={{
                 pathname: "/registration",
-                query: { redirect: redirectTo },
+               
               }}
               className="text-orange-500 underline font-semibold"
             >

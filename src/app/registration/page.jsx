@@ -17,8 +17,7 @@ const Registration = () => {
     const { createUser, updateUserProfile, googleSignIn } = useAuth();
 
     const router = useRouter();
-    // const searchParams = useSearchParams();
-    // const redirectTo = searchParams.get('from') || '/'; // redirect url
+    
 
     const handleRegistration = async (data) => {
         try {
@@ -40,7 +39,7 @@ const Registration = () => {
             await updateUserProfile(data.name, photoURL);
             console.log("User profile updated");
             toast.success("Signout successful!", { id: "signout" });
-            router.push("/"); // redirect after registration
+            router.push("/"); 
         } catch (error) {
             console.log(error);
         }
@@ -154,7 +153,7 @@ const Registration = () => {
                     <p className="font-medium text-gray-700">
                         Already have an account?{" "}
                         <Link
-                            href={`/login${redirectTo !== '/' ? `?from=${redirectTo}` : ''}`}
+                            href={`/login`}
                             className="text-orange-500 underline font-semibold">
                             Login
                         </Link>
