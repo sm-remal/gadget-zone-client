@@ -67,6 +67,7 @@ const ManageProducts = () => {
   return (
     <PrivateRoute>
       <div className="max-w-6xl mx-auto px-5 py-10">
+        <title>Manage-Products | Gadget Zone</title>
         <h1 className="text-3xl font-bold mb-6">Manage Products</h1>
 
         {products.length === 0 ? (

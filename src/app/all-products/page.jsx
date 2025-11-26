@@ -50,6 +50,7 @@ const Page = () => {
 
   return (
     <div className="all-products pb-10 px-4">
+      <title>All-Products | Gadget Zone</title>
       <div className="flex flex-col items-center text-center px-5 py-10">
         <h2 className="text-3xl font-bold text-orange-500 mb-4">
           All Products

@@ -40,6 +40,7 @@ const ProductDetailsPage = async ({ params }) => {
   return (
     <PrivateRoute>
       <div className="px-5 py-10 max-w-5xl mx-auto">
+        <title>Products Details | Gadget Zone</title>
         <Link href="/all-products" className="text-orange-500 font-semibold mb-5 inline-block">
           &larr; Back to Products
         </Link>

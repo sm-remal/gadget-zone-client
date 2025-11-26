@@ -58,6 +58,7 @@ const Registration = () => {
 
     return (
         <div className='w-full px-4 mt-14 sm:px-6 md:px-0 flex justify-center items-center min-h-screen'>
+            <title>Registration | Gadget Zone</title>
             <div className="card-body w-full max-w-md">
                 {/* Heading */}
                 <div className='flex flex-col justify-center mb-4 text-center space-y-4'>

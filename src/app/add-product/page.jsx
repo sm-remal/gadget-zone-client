@@ -48,6 +48,7 @@ const AddProductForm = () => {
   return (
     <PrivateRoute>
       <div className="max-w-2xl mx-auto px-5 py-10">
+        <title>Add-Products | Gadget Zone</title>
         <h1 className="text-3xl text-orange-600 font-bold mb-6">Add Product</h1>
 
         <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>

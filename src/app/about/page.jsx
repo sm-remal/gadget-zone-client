@@ -43,6 +43,7 @@ const About = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-16 space-y-20">
+      <title>About Us | Gadget Zone</title>
       {/* Header Section */}
       <div className="text-center mb-16">
         <h1 className="text-3xl md:text-4xl text-orange-600 font-bold mb-4">About Us</h1>
