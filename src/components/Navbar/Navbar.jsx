@@ -130,7 +130,7 @@ const NavBar = () => {
                 <a><FaGear /> Settings</a>
               </li>
               <li>
-                <button onClick={handleSignout} className="btn btn-lg text-left bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
+                <button onClick={handleSignout} className="btn btn-sm text-left bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white">
                   <IoLogOut /> Logout
                 </button>
               </li>

@@ -21,8 +21,8 @@ function renderStars(rating) {
 export default function ProductList({ products }) {
     const [searchQuery, setSearchQuery] = useState("");
 
-    const filteredProducts = products.filter((product) =>
-        product.product_title.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredProducts = products?.filter((product) =>
+        product?.product_title?.toLowerCase()?.includes(searchQuery?.toLowerCase())
     );
 
     return (
