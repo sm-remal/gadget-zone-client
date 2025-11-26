@@ -71,39 +71,40 @@ const AddProductForm = () => {
 
           {/* CATEGORY + PRICE */}
           <div className="flex gap-4">
-            <input
-              type="text"
-              placeholder="Category"
-              className="border rounded px-3 py-2 flex-1"
-              {...register("category", {
-                required: "Category is required",
-                minLength: {
-                  value: 3,
-                  message: "Category must be at least 3 characters long",
-                },
-              })}
-            />
-
-            <input
-              type="number"
-              placeholder="Price"
-              className="border rounded px-3 py-2 flex-1"
-              {...register("price", {
-                required: "Price is required",
-                min: { value: 1, message: "Price must be greater than 0" },
-              })}
-            />
-          </div>
-          {(errors.category || errors.price) && (
-            <div>
+            <div className="flex-1">
+              <input
+                type="text"
+                placeholder="Category"
+                className="border rounded px-3 py-2 w-full"
+                {...register("category", {
+                  required: "Category is required",
+                  minLength: {
+                    value: 3,
+                    message: "Category must be at least 3 characters long",
+                  },
+                })}
+              />
               {errors.category && (
                 <p className="text-red-500 text-sm">{errors.category.message}</p>
               )}
+            </div>
+
+            <div className="flex-1">
+              <input
+                type="number"
+                placeholder="Price"
+                className="border rounded px-3 py-2 w-full"
+                {...register("price", {
+                  required: "Price is required",
+                  min: { value: 1, message: "Price must be greater than 0" },
+                })}
+              />
               {errors.price && (
                 <p className="text-red-500 text-sm">{errors.price.message}</p>
               )}
             </div>
-          )}
+          </div>
+
 
           {/* SPECIFICATION */}
           <input
@@ -215,7 +216,7 @@ const AddProductForm = () => {
           {/* SUBMIT BTN */}
           <button
             type="submit"
-            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition"
+            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition cursor-pointer"
           >
             Add Product
           </button>

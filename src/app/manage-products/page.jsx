@@ -100,7 +100,7 @@ const ManageProducts = () => {
                       </Link>
                       <button
                         onClick={() => handleDelete(product._id)}
-                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition cursor-pointer"
                       >
                         Delete
                       </button>

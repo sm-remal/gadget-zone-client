@@ -38,7 +38,7 @@ const Registration = () => {
             // Update Firebase User Profile
             await updateUserProfile(data.name, photoURL);
             console.log("User profile updated");
-            toast.success("Signout successful!", { id: "signout" });
+            toast.success("SignIn successful!", { id: "signIn" });
             router.push("/"); 
         } catch (error) {
             console.log(error);
@@ -49,7 +49,7 @@ const Registration = () => {
         try {
             const res = await googleSignIn();
             console.log(res.user);
-            toast.success("Signout successful!", { id: "signout" });
+            toast.success("SignIn successful!", { id: "signIn" });
             router.push("/");
         } catch (error) {
             console.log(error);
