@@ -26,7 +26,7 @@ export default function ProductList({ products }) {
     );
 
     return (
-        <div className="all-products py-10">
+        <div className="all-products pb-10 px-4">
 
 
             <div className="flex flex-col items-center text-center px-5 py-10">

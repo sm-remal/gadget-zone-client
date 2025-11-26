@@ -29,13 +29,13 @@ const ErrorPage = () => {
       <div className="flex gap-3">
         <button
           onClick={() => router.push("/")}
-          className="bg-gradient-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500 text-white px-5 py-2 rounded"
+          className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white px-5 py-2 rounded cursor-pointer"
         >
           Back to Home
         </button>
         <button
           onClick={() => router.back()}
-          className="border-2 border-red-600 text-pink-600 px-5 py-2 rounded"
+          className="border-2 border-orange-600 text-orange-600 px-5 py-2 rounded cursor-pointer"
         >
           Go Back
         </button>

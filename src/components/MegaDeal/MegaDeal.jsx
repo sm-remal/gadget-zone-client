@@ -32,7 +32,7 @@ const MegaDeal = () => {
   }, []);
 
   return (
-    <div className="w-full my-10">
+    <div className="w-full my-10 px-4">
 
       {/* Banner Image */}
       <div className="relative w-full h-[350px] md:h-[450px] rounded-xl overflow-hidden shadow-lg">

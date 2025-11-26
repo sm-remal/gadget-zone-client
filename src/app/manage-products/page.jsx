@@ -5,11 +5,12 @@ import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 import Swal from "sweetalert2";
+import PrivateRoute from "@/PrivateRoute/PrivateRoute";
 
 const ManageProducts = () => {
   const { user } = useAuth();
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   // Fetch products for current user
   const fetchProducts = async () => {
@@ -63,54 +64,56 @@ const ManageProducts = () => {
     });
   };
 
-  if (loading) return <p className="text-center py-10">Loading...</p>;
+  // if (loading) return <p className="text-center py-10">Loading...</p>;
 
   return (
-    <div className="max-w-6xl mx-auto px-5 py-10">
-      <h1 className="text-3xl font-bold mb-6">Manage Products</h1>
+    <PrivateRoute>
+      <div className="max-w-6xl mx-auto px-5 py-10">
+        <h1 className="text-3xl font-bold mb-6">Manage Products</h1>
 
-      {products.length === 0 ? (
-        <p className="text-center text-gray-500">You have no products.</p>
-      ) : (
-        <div className="overflow-x-auto border rounded-lg">
-          <table className="min-w-full border-collapse">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="py-3 px-4 border-b text-left">Title</th>
-                <th className="py-3 px-4 border-b text-left">Category</th>
-                <th className="py-3 px-4 border-b text-left">Price (Tk)</th>
-                <th className="py-3 px-4 border-b text-left">Rating</th>
-                <th className="py-3 px-4 border-b text-left">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products.map(product => (
-                <tr key={product._id} className="hover:bg-gray-50 transition-colors">
-                  <td className="py-3 px-4 border-b">{product.product_title}</td>
-                  <td className="py-3 px-4 border-b">{product.category}</td>
-                  <td className="py-3 px-4 border-b">{product.price}</td>
-                  <td className="py-3 px-4 border-b">{product.rating}</td>
-                  <td className="py-3 px-4 border-b flex gap-2">
-                    <Link
-                      href={`/product-details/${product._id}`}
-                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition"
-                    >
-                      View
-                    </Link>
-                    <button
-                      onClick={() => handleDelete(product._id)}
-                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
-                    >
-                      Delete
-                    </button>
-                  </td>
+        {products.length === 0 ? (
+          <p className="text-center text-gray-500">You have no products.</p>
+        ) : (
+          <div className="overflow-x-auto border rounded-lg">
+            <table className="min-w-full border-collapse">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="py-3 px-4 border-b text-left">Title</th>
+                  <th className="py-3 px-4 border-b text-left">Category</th>
+                  <th className="py-3 px-4 border-b text-left">Price (Tk)</th>
+                  <th className="py-3 px-4 border-b text-left">Rating</th>
+                  <th className="py-3 px-4 border-b text-left">Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
+              </thead>
+              <tbody>
+                {products.map(product => (
+                  <tr key={product._id} className="hover:bg-gray-50 transition-colors">
+                    <td className="py-3 px-4 border-b">{product.product_title}</td>
+                    <td className="py-3 px-4 border-b">{product.category}</td>
+                    <td className="py-3 px-4 border-b">{product.price}</td>
+                    <td className="py-3 px-4 border-b">{product.rating}</td>
+                    <td className="py-3 px-4 border-b flex gap-2">
+                      <Link
+                        href={`/product-details/${product._id}`}
+                        className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition"
+                      >
+                        View
+                      </Link>
+                      <button
+                        onClick={() => handleDelete(product._id)}
+                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </PrivateRoute>
   );
 };
 

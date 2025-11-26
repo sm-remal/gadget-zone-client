@@ -6,6 +6,7 @@ import { MdVerifiedUser } from "react-icons/md";
 import { FaCamera } from "react-icons/fa";
 import toast from "react-hot-toast";
 import useAuth from "@/hooks/useAuth";
+import PrivateRoute from "@/PrivateRoute/PrivateRoute";
 
 const MyProfile = () => {
   const { user, setUser } = useAuth();
@@ -51,103 +52,105 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center mt-5 md:mt-10 p-6">
-      <title>My Profile</title>
-      <div className="max-w-5xl w-full bg-white dark:bg-black rounded-3xl shadow-2xl p-8 flex flex-col md:flex-row gap-10">
+    <PrivateRoute>
+      <div className="min-h-screen flex justify-center items-center mt-5 md:mt-10 p-6">
+        <title>My Profile</title>
+        <div className="max-w-5xl w-full bg-white dark:bg-black rounded-3xl shadow-2xl p-8 flex flex-col md:flex-row gap-10">
 
-        {/* ===== Left Side: Profile Card ===== */}
-        <div className="flex flex-col items-center md:w-1/3 text-center">
-          <div className="relative group">
-            <img
-              src={photoURL || "https://cdn-icons-png.flaticon.com/512/149/149071.png"}
-              alt="User Avatar"
-              className="w-36 h-36 rounded-full object-cover border-4 border-orange-500 shadow-lg"
-            />
-            <div className="absolute bottom-0 right-0 bg-orange-500 p-2 rounded-full cursor-pointer opacity-0 group-hover:opacity-100 transition">
-              <FaCamera className="text-white" />
+          {/* ===== Left Side: Profile Card ===== */}
+          <div className="flex flex-col items-center md:w-1/3 text-center">
+            <div className="relative group">
+              <img
+                src={photoURL || "https://cdn-icons-png.flaticon.com/512/149/149071.png"}
+                alt="User Avatar"
+                className="w-36 h-36 rounded-full object-cover border-4 border-orange-500 shadow-lg"
+              />
+              <div className="absolute bottom-0 right-0 bg-orange-500 p-2 rounded-full cursor-pointer opacity-0 group-hover:opacity-100 transition">
+                <FaCamera className="text-white" />
+              </div>
+            </div>
+
+            <h2 className="mt-4 text-xl font-bold text-orange-500">{fullName}</h2>
+            <p className="text-gray-600">{user?.email}</p>
+            <div className="flex items-center justify-center mt-2 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+              <MdVerifiedUser className="mr-1" /> Verified User
+            </div>
+
+            {/* Profile Completeness */}
+            <div className="w-full mt-6">
+              <p className="text-gray-700 mb-1 font-medium">Profile Completeness</p>
+              <div className="w-full h-4 bg-gray-200 rounded-full">
+                <div
+                  className="h-4 rounded-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 transition-all duration-500"
+                  style={{ width: `${profileCompleteness}%` }}
+                ></div>
+              </div>
+              <p className="text-sm text-gray-500 mt-1">{profileCompleteness}% completed</p>
             </div>
           </div>
 
-          <h2 className="mt-4 text-xl font-bold text-orange-500">{fullName}</h2>
-          <p className="text-gray-600">{user?.email}</p>
-          <div className="flex items-center justify-center mt-2 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-            <MdVerifiedUser className="mr-1" /> Verified User
-          </div>
+          {/* ===== Right Side: Edit Profile Form ===== */}
+          <div className="md:w-2/3 flex flex-col gap-4">
+            <h2 className="text-2xl font-bold text-orange-500 mb-4">Edit Profile</h2>
 
-          {/* Profile Completeness */}
-          <div className="w-full mt-6">
-            <p className="text-gray-700 mb-1 font-medium">Profile Completeness</p>
-            <div className="w-full h-4 bg-gray-200 rounded-full">
-              <div
-                className="h-4 rounded-full bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 transition-all duration-500"
-                style={{ width: `${profileCompleteness}%` }}
-              ></div>
+            {/* Full Name */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Full Name</label>
+              <input
+                type="text"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 placeholder-gray-400"
+                placeholder="Enter your name"
+              />
             </div>
-            <p className="text-sm text-gray-500 mt-1">{profileCompleteness}% completed</p>
+
+            {/* Email */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Email</label>
+              <input
+                type="text"
+                value={user?.email || ""}
+                readOnly
+                className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-gray-900 cursor-not-allowed"
+              />
+            </div>
+
+            {/* Photo URL */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Photo URL</label>
+              <input
+                type="text"
+                value={photoURL}
+                onChange={(e) => setPhotoURL(e.target.value)}
+                className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 placeholder-gray-400"
+                placeholder="Paste your photo URL"
+              />
+            </div>
+
+            {/* Address */}
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Address</label>
+              <input
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 placeholder-gray-400"
+                placeholder="Enter your address"
+              />
+            </div>
+
+            {/* Update Button */}
+            <button
+              onClick={handleUpdateProfile}
+              className="mt-4 py-3 w-1/2 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-lg hover:opacity-90 transition cursor-pointer"
+            >
+              Update Profile
+            </button>
           </div>
-        </div>
-
-        {/* ===== Right Side: Edit Profile Form ===== */}
-        <div className="md:w-2/3 flex flex-col gap-4">
-          <h2 className="text-2xl font-bold text-orange-500 mb-4">Edit Profile</h2>
-
-          {/* Full Name */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">Full Name</label>
-            <input
-              type="text"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 placeholder-gray-400"
-              placeholder="Enter your name"
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">Email</label>
-            <input
-              type="text"
-              value={user?.email || ""}
-              readOnly
-              className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-gray-900 cursor-not-allowed"
-            />
-          </div>
-
-          {/* Photo URL */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">Photo URL</label>
-            <input
-              type="text"
-              value={photoURL}
-              onChange={(e) => setPhotoURL(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 placeholder-gray-400"
-              placeholder="Paste your photo URL"
-            />
-          </div>
-
-          {/* Address */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">Address</label>
-            <input
-              type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-pink-400 placeholder-gray-400"
-              placeholder="Enter your address"
-            />
-          </div>
-
-          {/* Update Button */}
-          <button
-            onClick={handleUpdateProfile}
-            className="mt-4 py-3 w-1/2 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white font-semibold rounded-lg hover:opacity-90 transition cursor-pointer"
-          >
-            Update Profile
-          </button>
         </div>
       </div>
-    </div>
+    </PrivateRoute>
   );
 };
 
