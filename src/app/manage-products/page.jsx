@@ -10,14 +10,13 @@ import PrivateRoute from "@/PrivateRoute/PrivateRoute";
 const ManageProducts = () => {
   const { user } = useAuth();
   const [products, setProducts] = useState([]);
-  // const [loading, setLoading] = useState(true);
 
   // Fetch products for current user
   const fetchProducts = async () => {
     if (!user?.email) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/products?email=${user.email}`);
+      const res = await fetch(`https://gadget-zone-gamma.vercel.app/products?email=${user.email}`);
       const data = await res.json();
       setProducts(data);
     } catch (error) {
@@ -44,7 +43,7 @@ const ManageProducts = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await fetch(`http://localhost:5000/products/${id}`, {
+          const res = await fetch(`https://gadget-zone-gamma.vercel.app/products/${id}`, {
             method: "DELETE",
           });
 
@@ -64,7 +63,6 @@ const ManageProducts = () => {
     });
   };
 
-  // if (loading) return <p className="text-center py-10">Loading...</p>;
 
   return (
     <PrivateRoute>

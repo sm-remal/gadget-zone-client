@@ -5,7 +5,7 @@ import { FaStarHalfAlt, FaStar } from "react-icons/fa";
 
 // Server-side fetch function
 async function getLatestProducts() {
-  const res = await fetch('http://localhost:5000/latest-products', { cache: 'no-store' });
+  const res = await fetch('https://gadget-zone-gamma.vercel.app/latest-products', { cache: 'no-store' });
   if (!res.ok) throw new Error('Failed to fetch products');
   return res.json();
 }

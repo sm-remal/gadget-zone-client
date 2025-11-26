@@ -1,7 +1,7 @@
 import ProductList from "../products-list/page";
 
 async function getAllProducts() {
-  const res = await fetch("http://localhost:5000/products", {
+  const res = await fetch("https://gadget-zone-gamma.vercel.app/products", {
     cache: "no-store",
   });
   return res.json();
