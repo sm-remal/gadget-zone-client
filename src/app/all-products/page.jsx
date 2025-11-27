@@ -4,7 +4,7 @@ import { TbCoinTakaFilled } from "react-icons/tb";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import Loading from "@/components/Loading/Loading";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import toast from "react-hot-toast"; 
 
 function renderStars(rating) {
   const stars = [];
@@ -20,7 +20,7 @@ function renderStars(rating) {
   return stars;
 }
 
-const Page = () => {
+const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -121,4 +121,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default AllProducts;
